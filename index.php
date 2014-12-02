@@ -22,7 +22,7 @@ if (login_check($mysqli) == true) {
 </head>
 <body>
     <?php if (login_check($mysqli) == true) : ?>
-        <p>Hi <b><?php echo $logged ?></b>.</p>
+        <p>Hi <b><?php echo htmlentities($_SESSION['username']); ?></b>.</p>
     <?php else : ?>
         <p>Hi there</p>
     <?php endif; ?>
