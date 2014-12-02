@@ -37,7 +37,7 @@ if (login_check($mysqli) == true) {
         }
         ?>
         <form action="includes/process_login.php" method="post" name="login_form" id="login">
-            <fieldset name="login">
+            <fieldset name="login" style="max-width: 600px;">
                 <legend>Login</legend>
 
                 <label for="email">Email:</label>
