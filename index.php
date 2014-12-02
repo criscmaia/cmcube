@@ -18,12 +18,16 @@ if (login_check($mysqli) == true) {
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/foundation.css" />
     <script src="js/vendor/modernizr.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" ></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 </head>
 <body>
-    <h1>Welcome :)</h1>
+    <?php if (login_check($mysqli) == true) : ?>
+        <p>Hi <b><?php echo $logged ?></b>.</p>
+    <?php else : ?>
+        <p>Hi there</p>
+    <?php endif; ?>
+    
     <div id="loginDiv"></div>
-
     <script>
         $(document).ready(function () {
             $("#loginDiv").load("./login.php");
