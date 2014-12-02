@@ -23,7 +23,7 @@ sec_session_start();
             <p>Return to <a href="login.php">login page</a></p>
             <hr />
             <p><b>List of visitors:</b></p>
-            <?php include "./upload.php"; ?>
+            <?php include "./index.html"; ?>
             <hr />
             <p><b>List of visitors:</b></p>
             <?php include "./visitors.php"; ?>
