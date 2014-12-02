@@ -63,6 +63,7 @@ sec_session_start();
         </fieldset>
     </form>
     <p>Return to the <a href="login.php">login page</a>.</p>
+    <p>Return to the <a href="index.php">home page</a>.</p>
     <?php endif; ?>
     <script src="js/vendor/jquery.js"></script>
     <script src="js/foundation.min.js"></script>
