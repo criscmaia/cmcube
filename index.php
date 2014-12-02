@@ -21,6 +21,9 @@ if (login_check($mysqli) == true) {
 </head>
 <body>
     <h1>Welcome :)</h1>
-    <?php include "./login.php"; ?>
+    <span id="loginSpan">login</span>
+    <?php
+        include "./login.php";
+    ?>
 </body>
 </html>
