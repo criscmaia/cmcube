@@ -1,17 +1,12 @@
-<!doctype html>
+<!DOCTYPE html>
 <html class="no-js" lang="en">
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Upload page</title>
-
-    <style>
-        .thumb {
-            height: 95px;
-            border: 1px solid #000;
-            margin: 10px 5px 0 0;
-        }
-    </style>
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/foundation.css" />
+    <script src="js/vendor/modernizr.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 </head>
 <body>
     <?php if (login_check($mysqli) == true) : ?>

@@ -13,10 +13,12 @@ if (login_check($mysqli) == true) {
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
     <title>Secure Login: Log In</title>
     <link rel="stylesheet" href="css/main.css" />
-    <script type="text/JavaScript" src="js/sha512.js"></script>
-    <script type="text/JavaScript" src="js/forms.js"></script>
+    <link rel="stylesheet" href="css/foundation.css" />
+    <script src="js/vendor/modernizr.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 </head>
 <body>
     <?php if (login_check($mysqli) == true) : ?>
@@ -48,5 +50,10 @@ if (login_check($mysqli) == true) {
         <p>If you don't have a login, please <a href="register.php">register</a></p>
         <p>You are not logged in so you should not be able to access the <a href="protected_page.php">protected page</a>.</p>
     <?php endif; ?>
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/foundation.min.js"></script>
+    <script>
+        $(document).foundation();
+    </script>
 </body>
 </html>
