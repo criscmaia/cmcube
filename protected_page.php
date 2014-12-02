@@ -13,16 +13,10 @@ sec_session_start();
     </head>
     <body>
         <?php if (login_check($mysqli) == true) : ?>
-            <p>Welcome <?php echo htmlentities($_SESSION['username']); ?>!</p>
-            <p>
-                This is an example protected page.  To access this page, users
-                must be logged in.  At some stage, we'll also check the role of
-                the user, so pages will be able to determine the type of user
-                authorised to access the page.
-            </p>
+            <p>Welcome <b><?php echo htmlentities($_SESSION['username']); ?>!</b></p>
+            <p>You are logged in so you have permission to upload an image. This image will only be avaiable to you, unless you give permission to another to access it.</p>
             <p>Return to <a href="login.php">login page</a></p>
             <hr />
-            <p><b>List of visitors:</b></p>
             <?php include "./index.html"; ?>
             <hr />
             <p><b>List of visitors:</b></p>
