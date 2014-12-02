@@ -18,6 +18,7 @@ if (login_check($mysqli) == true) {
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/foundation.css" />
     <script src="js/vendor/modernizr.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" ></script>
 </head>
 <body>
     <h1>Welcome :)</h1>
