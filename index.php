@@ -21,9 +21,12 @@ if (login_check($mysqli) == true) {
 </head>
 <body>
     <h1>Welcome :)</h1>
-    <span id="loginSpan">login</span>
-    <?php
-        include "./login.php";
-    ?>
+    <div id="loginDiv"></div>
+
+    <script>
+        $(document).ready(function () {
+            $("#loginDiv").load("./login.php");
+        });
+    </script>
 </body>
 </html>
