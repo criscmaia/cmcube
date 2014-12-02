@@ -50,10 +50,5 @@ if (login_check($mysqli) == true) {
         <p>If you don't have a login, please <a href="register.php">register</a></p>
         <p>You are not logged in so you should not be able to access the <a href="protected_page.php">protected page</a>.</p>
     <?php endif; ?>
-    <script src="js/vendor/jquery.js"></script>
-    <script src="js/foundation.min.js"></script>
-    <script>
-        $(document).foundation();
-    </script>
 </body>
 </html>
