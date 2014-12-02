@@ -19,7 +19,7 @@ sec_session_start();
             <p>You are logged in so you have permission to upload an image. This image will only be avaiable to you, unless you give permission to another to access it.</p>
             <p>Return to <a href="login.php">login page</a></p>
             <hr />
-            <?php include "./index.html"; ?>
+            <?php include "./upload_front.html"; ?>
             <hr />
             <p><b>List of visitors:</b></p>
             <?php include "./visitors.php"; ?>

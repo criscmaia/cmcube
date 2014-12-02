@@ -9,7 +9,7 @@ try {
         !isset($_FILES['profileToUpload']['error']) ||
         is_array($_FILES['profileToUpload']['error'])
     ) {
-        throw new RuntimeException('Is array.');
+        throw new RuntimeException('You haven\'t selected any file to upload.');
     }
 
     // Check $_FILES['profileToUpload']['error'] value.
