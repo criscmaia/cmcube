@@ -56,13 +56,23 @@ try {
     
     $filename = sprintf('%s.%s', sha1_file($_FILES['profileToUpload']['tmp_name']),$ext);       // filename with extension
         
+    /*
+    if ($insert_stmt = $mysqli->prepare("INSERT INTO members (username, email, password, salt) VALUES (?, ?, ?, ?)")) {
+        $insert_stmt->bind_param('ssss', $username, $email, $password, $random_salt);
+        
+        if (! $insert_stmt->execute()) {                                                                // Execute the prepared query.
+            header('Location: ../error.php?err=Registration failure: INSERT');
+        }
+    }
+    header('Location: ./register_success.php');
+    */
+    
     // Insert the new user into the database 
     if ($insert_stmt = $mysqli->prepare("INSERT INTO image_access (username, filename) VALUES (?, ?)")) {
-        $insert_stmt->bind_param('s', $username, $filename);
+        $insert_stmt->bind_param('ss', $username, $filename);
         
         if (! $insert_stmt->execute()) {
-            //header('Location: ../error.php?err=Registration failure: INSERT');
-            echo 'file uploaded but not inserted on the database.';
+            //header('location: ../error.php?err=registration failure: insert');
         }
     }
     //header('Location: ./register_success.php');
