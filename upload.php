@@ -65,7 +65,9 @@ try {
     
     // add user and file name to the database
     $username = $_SESSION['username'];
+    echo '<b>Username:</b>' . $username;
     $filename = $_FILES['profileToUpload']['tmp_name'];
+    echo '<b>Filename:</b>' . $filename;
     
     // Insert the new user into the database 
     //if ($insert_stmt = $mysqli->prepare("INSERT INTO members (username, email, password, salt) VALUES (?, ?, ?, ?)")) {
