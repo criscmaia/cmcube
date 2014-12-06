@@ -65,25 +65,20 @@ try {
     
     // add user and file name to the database
     $username = $_SESSION['username'];
-    echo 'Username: ' . $username;
-    $filename = $_FILES['profileToUpload']['tmp_name'];
-    echo '\nFilename:' . $filename;
+    echo '|| Username: ' . $username;
+    $filename = sha1_file($_FILES['profileToUpload']['tmp_name']);
+    echo '|| Filename:' . $filename;
     
     // Insert the new user into the database 
-    //if ($insert_stmt = $mysqli->prepare("INSERT INTO members (username, email, password, salt) VALUES (?, ?, ?, ?)")) {
     if ($insert_stmt = $mysqli->prepare("INSERT INTO image_access (username, filename) VALUES (?, ?)")) {
-        //$insert_stmt->bind_param('ssss', $username, $email, $password, $random_salt);
-        //$insert_stmt->bind_param($username, $filename);
-        $insert_stmt->bind_param('criscmaia', $filename);
+        $insert_stmt->bind_param('s', 'criscmaia', $filename);
         
-        if (! $insert_stmt->execute()) {                                                                // Execute the prepared query.
+        if (! $insert_stmt->execute()) {
             //header('Location: ../error.php?err=Registration failure: INSERT');
             echo 'file uploaded but not inserted on the database.';
         }
     }
     //header('Location: ./register_success.php');
-    echo 'Everything worked fine :D  file has been uploaded and added to the database';
-
 }
 catch (RuntimeException $e) {
     
