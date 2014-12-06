@@ -1,8 +1,14 @@
+<?php
+include_once 'includes/db_connect.php';
+include_once 'includes/functions.php';
+
+sec_session_start();
+?>
 <!DOCTYPE html>
-<html class="no-js" lang="en">
+<html>
 <head>
-    <meta charset="utf-8" />
-    <title>Upload page</title>
+    <meta charset="UTF-8">
+    <title>Secure Login: Protected Page</title>
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/foundation.css" />
     <script src="js/vendor/modernizr.js"></script>
