@@ -23,7 +23,7 @@ sec_session_start();
     <hr />
     <?php include "./upload_front.php"; ?>
     <hr />
-    <img src="./uploadedPictures/<?php list_images($mysqli) ?>.png" />
+    <img src="./uploadedPictures/<?php list_images($mysqli) ?>.jpg" />
     <hr />
     <p><b>List of visitors:</b></p>
     <?php include "./visitors.php"; ?>
