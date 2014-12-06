@@ -67,7 +67,7 @@ try {
     $username = $_SESSION['username'];
     echo '|| Username: ' . $username;
     
-    $filename = sha1_file($finfo->file($_FILES['profileToUpload']['tmp_name'])).$ext;
+    $filename = sha1_file($_FILES['profileToUpload']['tmp_name']).$ext;       // filename with extension
         
     //$filename = sha1_file($_FILES['profileToUpload']['tmp_name']).$ext;
     
