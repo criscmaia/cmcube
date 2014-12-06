@@ -1,5 +1,5 @@
 <?php
-include_once 'psl-config.php';
+include_once './includes/psl-config.php';
 header('Content-Type: text/plain; charset=utf-8');
 
 try {
