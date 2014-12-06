@@ -12,7 +12,7 @@
     <?php if (login_check($mysqli) == true) : ?>
     <div class="row">
         <div class="large-12 columns">
-            <h1>Upload page</h1>
+            <h4>Upload page</h4>
         </div>
     </div>
 
