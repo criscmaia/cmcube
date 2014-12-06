@@ -49,19 +49,6 @@ try {
         throw new RuntimeException('Invalid file format.');
     }
     
-    // You should name it uniquely.
-    // DO NOT USE $_FILES['profileToUpload']['name'] WITHOUT ANY VALIDATION !!
-    // On this example, obtain safe unique name from its binary data.
-    if (!move_uploaded_file(
-            $_FILES['profileToUpload']['tmp_name'],
-            sprintf('./uploadedPictures/%s.%s', sha1_file($_FILES['profileToUpload']['tmp_name']),
-            $ext
-        )
-    )) {
-        throw new RuntimeException('Failed to move uploaded file.');
-    }
-
-    echo 'File is uploaded successfully.';
     
     // add user and file name to the database
     $username = $_SESSION['username'];
@@ -86,6 +73,25 @@ try {
         }
     }
     //header('Location: ./register_success.php');
+    
+    
+    
+    
+    
+    // You should name it uniquely.
+    // DO NOT USE $_FILES['profileToUpload']['name'] WITHOUT ANY VALIDATION !!
+    // On this example, obtain safe unique name from its binary data.
+    if (!move_uploaded_file(
+            $_FILES['profileToUpload']['tmp_name'],
+            sprintf('./uploadedPictures/%s.%s', sha1_file($_FILES['profileToUpload']['tmp_name']),
+            $ext
+        )
+    )) {
+        throw new RuntimeException('Failed to move uploaded file.');
+    }
+
+    echo 'File is uploaded successfully.';
+    
 }
 catch (RuntimeException $e) {
     
