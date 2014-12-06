@@ -23,6 +23,8 @@ sec_session_start();
     <hr />
     <?php include "./upload_front.php"; ?>
     <hr />
+    <img src="./uploadedPictures/<?php list_images($mysqli) ?>" />
+    <hr />
     <p><b>List of visitors:</b></p>
     <?php include "./visitors.php"; ?>
     <?php else : ?>
@@ -30,8 +32,6 @@ sec_session_start();
         <span class="error">You are not authorized to access this page.</span> Please <a href="login.php">login</a>.
     </p>
     <?php endif; ?>
-    <hr />
-    <?php list_images($mysqli) ?>
     <script src="js/vendor/jquery.js"></script>
     <script src="js/foundation.min.js"></script>
     <script>

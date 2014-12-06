@@ -170,7 +170,7 @@ function list_images($mysqli) {
             //$stmt->bind_result($password);                                          // If the user exists get variables from result.
             $stmt->bind_result($filename);
             $stmt->fetch();
-            echo '<h1>Filename: </h1>' . $filename;
+            echo $filename;
             //$login_check = hash('sha512', $password . $user_browser);
             
             //if ($login_check == $login_string) {
@@ -179,7 +179,7 @@ function list_images($mysqli) {
             //    return false;                                                       // Not logged in :(
             //}
         } else {
-            echo '<h1>No rows returned </h1>';
+            //echo '<h1>No rows returned </h1>';
             return false;                                                           // Not logged in :(
         }
     }
