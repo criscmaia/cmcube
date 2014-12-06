@@ -71,15 +71,15 @@ try {
     //if ($insert_stmt = $mysqli->prepare("INSERT INTO members (username, email, password, salt) VALUES (?, ?, ?, ?)")) {
     if ($insert_stmt = $mysqli->prepare("INSERT INTO image_access (username, filename) VALUES (?, ?)")) {
         //$insert_stmt->bind_param('ssss', $username, $email, $password, $random_salt);
-        $insert_stmt->bind_param('ssss', $username, $filename);
+        $insert_stmt->bind_param($username, $filename);
         
         if (! $insert_stmt->execute()) {                                                                // Execute the prepared query.
-            header('Location: ../error.php?err=Registration failure: INSERT');
-            //echo 'file uploaded but not inserted on the database.';
+            //header('Location: ../error.php?err=Registration failure: INSERT');
+            echo 'file uploaded but not inserted on the database.';
         }
     }
-    header('Location: ./register_success.php');
-    //echo 'Everything worked fine :D  file has been uploaded and added to the database';
+    //header('Location: ./register_success.php');
+    echo 'Everything worked fine :D  file has been uploaded and added to the database';
 
 }
 catch (RuntimeException $e) {
