@@ -66,12 +66,16 @@ try {
     // add user and file name to the database
     $username = $_SESSION['username'];
     echo '|| Username: ' . $username;
-    $filename = sha1_file($_FILES['profileToUpload']['tmp_name']);
+    
+    $filename = sha1_file($finfo->file($_FILES['profileToUpload']['tmp_name'])).$ext;
+        
+    //$filename = sha1_file($_FILES['profileToUpload']['tmp_name']).$ext;
+    
     echo '|| Filename:' . $filename;
     
     // Insert the new user into the database 
     if ($insert_stmt = $mysqli->prepare("INSERT INTO image_access (username, filename) VALUES (?, ?)")) {
-        $insert_stmt->bind_param('s', 'criscmaia', $filename);
+        $insert_stmt->bind_param('s', $username, $filename);
         
         if (! $insert_stmt->execute()) {
             //header('Location: ../error.php?err=Registration failure: INSERT');
