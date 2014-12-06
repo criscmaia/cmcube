@@ -149,3 +149,81 @@ function esc_url($url) {
         return $url;
     }
 }
+
+function list_images($mysqli) {
+//function list_images($username, $filename, $mysqli) {
+    
+    //$user_id = $_SESSION['user_id'];
+    //$login_string = $_SESSION['login_string'];
+    //$username = $_SESSION['username'];
+    $username = 'criscmaia';
+    //$user_browser = $_SERVER['HTTP_USER_AGENT'];                                    // Get the user-agent string of the user.
+    
+    //if ($stmt = $mysqli->prepare("SELECT password  FROM members  WHERE id = ? LIMIT 1")) {
+    if ($stmt = $mysqli->prepare("SELECT filename FROM image_access WHERE username = ? LIMIT 1")) {
+        //$stmt->bind_param('i', $user_id);                                         // Bind "$user_id" to parameter. 
+        $stmt->bind_param('i', $username);
+        $stmt->execute();                                                           // Execute the prepared query.
+        $stmt->store_result();
+        
+        if ($stmt->num_rows == 1) {
+            //$stmt->bind_result($password);                                          // If the user exists get variables from result.
+            $stmt->bind_result($filename);
+            $stmt->fetch();
+            echo '<h1>Filename: </h1>' . $filename;
+            //$login_check = hash('sha512', $password . $user_browser);
+            
+            //if ($login_check == $login_string) {
+            //    return true;                                                        // Logged In ! :)
+            //} else {
+            //    return false;                                                       // Not logged in :(
+            //}
+        } else {
+            echo '<h1>No rows returned </h1>';
+            return false;                                                           // Not logged in :(
+        }
+    }
+    
+    // Using prepared statements means that SQL injection is not possible. 
+    /*
+    if ($stmt = $mysqli->prepare("SELECT username, filename FROM image_access WHERE username = ? LIMIT 1")) {
+        $stmt->bind_param('s', $username);                                                 // Bind "$email" to parameter.
+        $stmt->execute();                                                               // Execute the prepared query.
+        $stmt->store_result();
+        
+        $stmt->bind_result($user_id, $username, $db_password, $salt);                   // get variables from result.
+        $stmt->fetch();
+        
+        $password = hash('sha512', $password . $salt);                                  // hash the password with the unique salt.
+        if ($stmt->num_rows == 1) {
+            if (checkbrute($user_id, $mysqli) == true) {                                // If the user exists we check if the account is locked from too many login attempts 
+                // Account is locked.  
+                // Email user
+                return false;
+            } else {
+                // Check if the password in the database matches
+                // the password the user submitted.
+                if ($db_password == $password) {
+                    // Password is correct!
+                    $user_browser = $_SERVER['HTTP_USER_AGENT'];                        // Get the user-agent string of the user.
+                    $user_id = preg_replace("/[^0-9]+/", "", $user_id);                 // XSS protection as we might print this value
+                    $_SESSION['user_id'] = $user_id;
+                    $username = preg_replace("/[^a-zA-Z0-9_\-]+/",  "",  $username);    // XSS protection as we might print this value
+                    $_SESSION['username'] = $username;
+                    $_SESSION['login_string'] = hash('sha512',  $password . $user_browser);
+                    // Login successful.
+                    return true;
+                } else {
+                    // Password is not correct
+                    // We record this attempt in the database
+                    $now = time();
+                    $mysqli->query("INSERT INTO login_attempts(user_id, time) VALUES ('$user_id', '$now')");
+                    return false;
+                }
+            }
+        } else {
+            return false;       // No user exists.
+        }
+    }
+     * */
+}
