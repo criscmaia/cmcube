@@ -1,5 +1,8 @@
 <?php
 include_once './includes/psl-config.php';
+include_once './includes/db_connect.php';
+include_once './includes/functions.php';
+
 header('Content-Type: text/plain; charset=utf-8');
 
 try {
