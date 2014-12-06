@@ -51,12 +51,31 @@ try {
     
     
     // add user and file name to the database
+    if (isset($_SESSION['user_id'],                                                     // Check if all session variables are set 
+              $_SESSION['username'], 
+              $_SESSION['login_string'])) {
+        $user_id = $_SESSION['user_id'];
+        $login_string = $_SESSION['login_string'];
+        $username = $_SESSION['username'];
+        $user_browser = $_SERVER['HTTP_USER_AGENT'];                                    // Get the user-agent string of the user.
+        
+        echo '$user_id: ' . $user_id;
+        echo '$login_string: ' . $login_string;
+        echo '$username: ' . $username;
+        echo '$user_browser: ' . $user_browser;        
+        
+    } else {
+        echo '--- session is not set.';
+    }
+    
+    
     $username = htmlentities($_SESSION['username']);
     echo '|| Username: ' . $username;
     
     $filename = sprintf('%s.%s', sha1_file($_FILES['profileToUpload']['tmp_name']),$ext);       // filename with extension
-        
+    
     // Insert the new user into the database 
+    /*
     if ($insert_stmt = $mysqli->prepare("INSERT INTO image_access (username, filename) VALUES (?, ?)")) {
         $insert_stmt->bind_param('ss', $username, $filename);
         
@@ -65,7 +84,7 @@ try {
         }
     }
     //header('Location: ./register_success.php');
-    
+    */
     
     
     
