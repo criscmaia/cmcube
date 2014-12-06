@@ -1,4 +1,5 @@
 <?php
+include_once 'psl-config.php';
 header('Content-Type: text/plain; charset=utf-8');
 
 try {
@@ -58,6 +59,24 @@ try {
     }
 
     echo 'File is uploaded successfully.';
+    
+    // add user and file name to the database
+    $username = $_SESSION['username'];
+    $filename = $_FILES['profileToUpload']['tmp_name'];
+    
+    // Insert the new user into the database 
+    //if ($insert_stmt = $mysqli->prepare("INSERT INTO members (username, email, password, salt) VALUES (?, ?, ?, ?)")) {
+    if ($insert_stmt = $mysqli->prepare("INSERT INTO image_access (username, filename) VALUES (?, ?)")) {
+        //$insert_stmt->bind_param('ssss', $username, $email, $password, $random_salt);
+        $insert_stmt->bind_param('ssss', $username, $filename);
+        
+        if (! $insert_stmt->execute()) {                                                                // Execute the prepared query.
+            //header('Location: ../error.php?err=Registration failure: INSERT');
+            echo 'file uploaded but not inserted on the database.';
+        }
+    }
+    //header('Location: ./register_success.php');
+    echo 'Everything worked fine :D  file has been uploaded and added to the database';
 
 }
 catch (RuntimeException $e) {
