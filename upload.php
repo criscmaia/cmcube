@@ -71,12 +71,12 @@ try {
         $insert_stmt->bind_param('ssss', $username, $filename);
         
         if (! $insert_stmt->execute()) {                                                                // Execute the prepared query.
-            //header('Location: ../error.php?err=Registration failure: INSERT');
-            echo 'file uploaded but not inserted on the database.';
+            header('Location: ../error.php?err=Registration failure: INSERT');
+            //echo 'file uploaded but not inserted on the database.';
         }
     }
-    //header('Location: ./register_success.php');
-    echo 'Everything worked fine :D  file has been uploaded and added to the database';
+    header('Location: ./register_success.php');
+    //echo 'Everything worked fine :D  file has been uploaded and added to the database';
 
 }
 catch (RuntimeException $e) {
