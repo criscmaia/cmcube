@@ -67,12 +67,12 @@ try {
     $username = $_SESSION['username'];
     echo '|| Username: ' . $username;
     
-    $filename = sha1_file($_FILES['profileToUpload']['tmp_name']).$ext;       // filename with extension
+    $filename = sprintf('%s.%s', sha1_file($_FILES['profileToUpload']['tmp_name']),$ext);       // filename with extension
     
     echo '|| sprintf name: '   . sprintf('%s.%s', sha1_file($_FILES['profileToUpload']['tmp_name']),$ext);
     echo '|| temporary name: ' .           $_FILES['profileToUpload']['tmp_name'];
     echo '|| sha1 name: '      . sha1_file($_FILES['profileToUpload']['tmp_name']);
-    echo '|| extension: ' . $ext;
+    echo '|| extension: '      . $ext;
     
     echo '|| Filename:' . $filename;
     
