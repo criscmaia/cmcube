@@ -51,18 +51,11 @@ try {
     
     
     // add user and file name to the database
-    $username = $_SESSION['username'];
+    $username = htmlentities($_SESSION['username']);
     echo '|| Username: ' . $username;
     
     $filename = sprintf('%s.%s', sha1_file($_FILES['profileToUpload']['tmp_name']),$ext);       // filename with extension
-    
-    echo '|| sprintf name: '   . sprintf('%s.%s', sha1_file($_FILES['profileToUpload']['tmp_name']),$ext);
-    echo '|| temporary name: ' .           $_FILES['profileToUpload']['tmp_name'];
-    echo '|| sha1 name: '      . sha1_file($_FILES['profileToUpload']['tmp_name']);
-    echo '|| extension: '      . $ext;
-    
-    echo '|| Filename:' . $filename;
-    
+        
     // Insert the new user into the database 
     if ($insert_stmt = $mysqli->prepare("INSERT INTO image_access (username, filename) VALUES (?, ?)")) {
         $insert_stmt->bind_param('s', $username, $filename);
