@@ -26,7 +26,7 @@ sec_session_start();
         <div class="large-12 columns">
             <div class="panel">
                 <h3>Use the form below to upload any images to the server </h3>
-
+                <?php echo htmlentities($_SESSION['username']); ?>
                 <form action="upload.php" method="post" enctype="multipart/form-data">
                     <fieldset name="picture">
                         <div id="upload">
