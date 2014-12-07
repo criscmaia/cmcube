@@ -151,29 +151,17 @@ function esc_url($url) {
 }
 
 function list_images($mysqli) {
-    //$user_id = $_SESSION['user_id'];
-    //$login_string = $_SESSION['login_string'];
     $username = $_SESSION['username'];
-    //$username = 'criscmaia';
-
+    
     if ($stmt = $mysqli->prepare("SELECT filename FROM image_access WHERE username = ? LIMIT 1")) {
-        //$stmt->bind_param('i', $user_id);                                         // Bind "$user_id" to parameter. 
         $stmt->bind_param('i', $username);
         $stmt->execute();                                                           // Execute the prepared query.
         $stmt->store_result();
         
         if ($stmt->num_rows == 1) {
-            //$stmt->bind_result($password);                                          // If the user exists get variables from result.
             $stmt->bind_result($filename);
             $stmt->fetch();
             echo $filename;
-            //$login_check = hash('sha512', $password . $user_browser);
-            
-            //if ($login_check == $login_string) {
-            //    return true;                                                        // Logged In ! :)
-            //} else {
-            //    return false;                                                       // Not logged in :(
-            //}
         } else {
             //echo '<h1>No rows returned </h1>';
             return false;                                                           // Not logged in :(
