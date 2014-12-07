@@ -58,8 +58,13 @@ try {
     
     if ($insert_stmt = $mysqli->prepare("INSERT INTO image_access (username, filename) VALUES (?, ?)")) {   // insert into the database
         $insert_stmt->bind_param('ss', $username, $filename);
-        $insert_stmt->execute;    
-    }    
+        $insert_stmt->execute;
+        if (! $insert_stmt->execute()) {
+            //header('location: ../error.php?err=registration failure: insert');
+        }
+    }
+    //header('Location: ./register_success.php');  
+    
     
     
     // You should name it uniquely.
