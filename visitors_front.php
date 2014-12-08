@@ -17,9 +17,9 @@ sec_session_start();
 <body>
     <?php if (login_check($mysqli) == true) : ?>
         <p>[ <a href="index.php">home page</a> |
-             <a href="includes/logout.php">log out</a> |  
-            <a href="includes/visitors_front.php">visitors log</a>
-            ]</p>        
+             <a href="visitors_front.php">visitors log</a> |
+             <a href="includes/logout.php">log out</a>
+            ]</p>
         <h4>Welcome <b><?php echo htmlentities($_SESSION['username']); ?>!</b></h4>
         <p><b>List of visitors:</b></p>
         <?php include "./visitors.php"; ?>
