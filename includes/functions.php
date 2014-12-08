@@ -171,7 +171,7 @@ function list_images($mysqli) {
             //}
         } else {
             //echo '<h1>No rows returned </h1>';
-            return false;                                                           // Not logged in :(
+            echo '/none/no_images';                                                           // Not logged in :(
         }
     }
 
