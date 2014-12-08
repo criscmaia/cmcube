@@ -27,7 +27,7 @@ if (login_check($mysqli) == true) {
              <a href="visitors_front.php">visitors log</a> |
              <a href="includes/logout.php">log out</a>
             ]</p>    
-        <p>Hi <b><?php echo htmlentities($_SESSION['username']); ?></b>.</p>
+        <h4>Welcome <b><?php echo htmlentities($_SESSION['username']); ?>!</b></h4>
     <?php else : ?>
         <p>Hi there</p>
     <?php endif; ?>
