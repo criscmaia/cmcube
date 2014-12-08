@@ -8,7 +8,7 @@ sec_session_start();
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Secure Login: Registration Form</title>
+    <title>Registration Form</title>
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/foundation.css" />
     <script type="text/JavaScript" src="js/sha512.js"></script>

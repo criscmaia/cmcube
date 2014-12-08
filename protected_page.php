@@ -8,7 +8,7 @@ sec_session_start();
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Secure Login: Protected Page</title>
+    <title>Upload + Gallery</title>
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/foundation.css" />
     <script src="js/vendor/modernizr.js"></script>

@@ -14,7 +14,7 @@ if (login_check($mysqli) == true) {
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Secure Login: Log In</title>
+    <title>Log In</title>
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/foundation.css" />
     <script src="js/vendor/modernizr.js"></script>
