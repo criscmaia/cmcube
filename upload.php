@@ -79,7 +79,8 @@ try {
         throw new RuntimeException('Failed to move uploaded file.');
     }
 
-    echo 'File is uploaded successfully.';
+    header ('Location: ../cmcube/protected_page.php/?uploadSuccess');
+    //echo 'File is uploaded successfully.';
     
 }
 catch (RuntimeException $e) {
