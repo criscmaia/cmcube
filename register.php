@@ -14,12 +14,17 @@ sec_session_start();
     <script src="js/vendor/modernizr.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 </head>
-<body>
+<body style="max-width: 500px;">
     <?php if (login_check($mysqli) == true) : ?>
-    <p>You are already logged in, <?php echo htmlentities($_SESSION['username']); ?>.</p>
-    <p>Please <a href="includes/logout.php">log out</a> first to register.</p>
+        <p>[ <a href="index.php">home page</a> |
+             <a href="protected_page.php">upload image</a> |
+             <a href="visitors_front.php">visitors log</a> |
+             <a href="includes/logout.php">log out</a>
+            ]</p>
+        <h4>You are already logged in, <?php echo htmlentities($_SESSION['username']); ?>.</h4>
+        <p>Please use the menu above to navigate :) </p>
     <?php else : ?>
-    <h1>Register</h1>
+    <h4>Register</h4>
     <ul>
         <li>Usernames may contain only digits, upper and lower case letters and underscores</li>
         <li>Emails must have a valid email format</li>

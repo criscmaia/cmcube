@@ -26,7 +26,7 @@ if (login_check($mysqli) == true) {
 <body>
     <?php if (login_check($mysqli) == true) : ?>
         <p>You are currently logged <b><?php echo $logged ?></b>.</p>
-        <p>Please use the menu above to navigate :)</p>
+        <p>Please use the menu above to navigate :) </p>
     <?php else : ?>
 
         <?php
