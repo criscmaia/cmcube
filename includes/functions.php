@@ -150,7 +150,7 @@ function esc_url($url) {
     }
 }
 
-function list_images($mysqli) {
+function list_images($mysqli) {                                                                  // List all the images that user has access to, if any
     $username = $_SESSION['username'];
     
     if ($stmt = $mysqli->prepare("SELECT filename FROM image_access WHERE username = ? ")) {     // Search for all the images from this user
