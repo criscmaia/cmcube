@@ -160,11 +160,11 @@ function list_images($mysqli) {
         
         //if ($stmt->num_rows == 1) {
         if ($stmt->num_rows > 0) {
-            while($stmt = $stmt->fetch_assoc()){ 
+            //while($stmt = $stmt->fetch_assoc()){ 
                 $stmt->bind_result($filename);
                 $stmt->fetch();
                 echo '<img src="./uploadedPictures/none/' . $filename . '>" /><br />';                  // Send the image name back
-            }
+            //}
         } else {
             echo '<img src="./uploadedPictures/none/no_image.jpg>" />';                                 // Prints the 'no image' image
         }
