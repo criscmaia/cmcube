@@ -1,3 +1,9 @@
 ﻿body
 {
 }
+
+.uploaded {
+    width: 200px;
+    margin: 5px;
+    border: 2px dashed groove;
+}
