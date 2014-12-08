@@ -158,6 +158,8 @@ function list_images($mysqli) {                                                 
         $stmt->execute();                                                                        // Execute the prepared query.
         $stmt->store_result();
         
+        echo 'You have ' . $stmt->num_rows . ' images on your gallery.';
+        
         if ($stmt->num_rows > 0) {                                                               // If the user has any access to any image
             $stmt->bind_result($filename);
             while($stmt->fetch()){ 
@@ -166,7 +168,6 @@ function list_images($mysqli) {                                                 
         } else {
             echo '<img src="./uploadedPictures/none/no_image.jpg" />';                           // Prints the 'no image' image
         }
-        echo 'Number of rows: ' . $stmt->num_rows . '. User: ' . $username;
         $stmt->free_result();
         $stmt->close();
     }
