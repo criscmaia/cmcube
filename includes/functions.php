@@ -162,6 +162,13 @@ function list_images($mysqli) {
             $stmt->bind_result($filename);
             $stmt->fetch();
             echo $filename;
+            //$login_check = hash('sha512', $password . $user_browser);
+            
+            //if ($login_check == $login_string) {
+            //    return true;                                                        // Logged In ! :)
+            //} else {
+            //    return false;                                                       // Not logged in :(
+            //}
         } else {
             //echo '<h1>No rows returned </h1>';
             return false;                                                           // Not logged in :(
