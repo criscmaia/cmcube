@@ -161,7 +161,7 @@ function list_images($mysqli) {                                                 
         if ($stmt->num_rows > 0) {                                                               // If the user has any access to any image
             $stmt->bind_result($filename);
             while($stmt->fetch()){ 
-                echo '<img class="uploaded" src="./uploadedPictures/' . $filename . '" /><br />';                 // Send the image name back
+                echo '<img class="uploaded" src="./uploadedPictures/' . $filename . '" />';                 // Send the image name back
             }
         } else {
             echo '<img src="./uploadedPictures/none/no_image.jpg" />';                           // Prints the 'no image' image
