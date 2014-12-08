@@ -17,6 +17,7 @@ sec_session_start();
 <body>
     <?php if (login_check($mysqli) == true) : ?>
         <p>[ <a href="index.php">home page</a> |
+             <a href="protected_page.php">upload image</a> |
              <a href="visitors_front.php">visitors log</a> |
              <a href="includes/logout.php">log out</a>
             ]</p>

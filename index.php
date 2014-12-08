@@ -22,6 +22,11 @@ if (login_check($mysqli) == true) {
 </head>
 <body>
     <?php if (login_check($mysqli) == true) : ?>
+        <p>[ <a href="index.php">home page</a> |
+             <a href="protected_page.php">upload image</a> |
+             <a href="visitors_front.php">visitors log</a> |
+             <a href="includes/logout.php">log out</a>
+            ]</p>    
         <p>Hi <b><?php echo htmlentities($_SESSION['username']); ?></b>.</p>
     <?php else : ?>
         <p>Hi there</p>
