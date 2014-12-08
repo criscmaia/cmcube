@@ -26,9 +26,7 @@ if (login_check($mysqli) == true) {
 <body>
     <?php if (login_check($mysqli) == true) : ?>
         <p>You are currently logged <b><?php echo $logged ?></b>.</p>
-        <p>Welcome <b><?php echo htmlentities($_SESSION['username']); ?>!</b></p>
-        <p>If you are done, please <a href="includes/logout.php">log out</a>.</p>
-        <p>If you logged in you should be able to access the <a href="protected_page.php">protected page</a>.</p>
+        <p>Please use the menu above to navigate :)</p>
     <?php else : ?>
 
         <?php
