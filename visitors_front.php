@@ -19,12 +19,10 @@ sec_session_start();
         <p>[ <a href="index.php">home page</a> |
              <a href="includes/logout.php">log out</a> |  
             <a href="includes/visitors_front.php">visitors log</a>
-            ]</p>
+            ]</p>        
         <h4>Welcome <b><?php echo htmlentities($_SESSION['username']); ?>!</b></h4>
-        <?php include "./upload_front.php"; ?>
-        <hr />
-        <h4>Your images:</h4>
-        <?php list_images($mysqli) ?>
+        <p><b>List of visitors:</b></p>
+        <?php include "./visitors.php"; ?>
     <?php else : ?>
         <p><span class="error">You are not authorized to access this page.</span> Please <a href="login.php">login</a>.</p>
     <?php endif; ?>
