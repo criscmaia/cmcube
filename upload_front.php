@@ -18,7 +18,7 @@ include_once 'includes/functions.php';
     <?php if (login_check($mysqli) == true) : ?>
     <div class="row">
         <div class="large-12 columns">
-            <h4>Upload page</h4>
+            <p>Upload a new image below:</p>
         </div>
     </div>
 

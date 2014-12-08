@@ -16,8 +16,8 @@ sec_session_start();
 </head>
 <body>
     <?php if (login_check($mysqli) == true) : ?>
-        <p><a href="includes/logout.php">[ log out</a> | <a href="index.php">home page ]</a></p>        
-        <p>Welcome <b><?php echo htmlentities($_SESSION['username']); ?>!</b></p>
+        <p>[ <a href="includes/logout.php">log out</a> | <a href="index.php">home page</a> ]</p>        
+        <h4>Welcome <b><?php echo htmlentities($_SESSION['username']); ?>!</b></h4>
         <?php include "./upload_front.php"; ?>
         <hr />
         <h4>Your images:</h4>
