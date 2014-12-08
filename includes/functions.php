@@ -163,10 +163,10 @@ function list_images($mysqli) {
             //while($stmt = $stmt->fetch_assoc()){ 
                 $stmt->bind_result($filename);
                 $stmt->fetch();
-                echo '<img src="./uploadedPictures/none/' . $filename . '>" /><br />';                  // Send the image name back
+                echo '<img src="./uploadedPictures/' . $filename . '" /><br />';                  // Send the image name back
             //}
         } else {
-            echo '<img src="./uploadedPictures/none/no_image.jpg>" />';                                 // Prints the 'no image' image
+            echo '<img src="./uploadedPictures/none/no_image.jpg" />';                                 // Prints the 'no image' image
         }
     }
 
