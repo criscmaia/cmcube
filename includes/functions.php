@@ -153,7 +153,7 @@ function esc_url($url) {
 function list_images($mysqli) {
     $username = $_SESSION['username'];
     
-    if ($stmt = $mysqli->prepare("SELECT filename FROM image_access WHERE username = ? LIMIT 1")) {     // Search for all the images from this user
+    if ($stmt = $mysqli->prepare("SELECT filename FROM image_access WHERE username = ? ")) {     // Search for all the images from this user
         $stmt->bind_param('i', $username);
         $stmt->execute();                                                                               // Execute the prepared query.
         $stmt->store_result();
