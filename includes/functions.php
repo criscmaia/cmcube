@@ -166,7 +166,7 @@ function list_images($mysqli) {                                                 
         } else {
             echo '<img src="./uploadedPictures/none/no_image.jpg" />';                           // Prints the 'no image' image
         }
-        echo 'Number of rows: ' . $stmt->num_rows
+        echo 'Number of rows: ' . $stmt->num_rows;
         $stmt->free_result();
         $stmt->close();
     }
