@@ -158,7 +158,7 @@ function list_images($mysqli) {                                                 
         $stmt->execute();                                                                        // Execute the prepared query.
         $stmt->store_result();
         
-        echo 'You have ' . $stmt->num_rows . ' images on your gallery.';
+        echo '<p><i>You have ' . $stmt->num_rows . ' images on your gallery. </i></p>';
         
         if ($stmt->num_rows > 0) {                                                               // If the user has any access to any image
             $stmt->bind_result($filename);
