@@ -25,12 +25,9 @@ include_once 'includes/functions.php';
     <div class="row">
         <div class="large-12 columns">
             <div class="panel">
-                <h3>Use the form below to upload any images to the server </h3>
-                <?php echo htmlentities($_SESSION['username']); ?>
                 <form action="upload.php" method="post" enctype="multipart/form-data">
                     <fieldset name="picture">
                         <div id="upload">
-                            <div id="uploadTxt">Select the picture you want to upload</div>
                             <output id="list"></output>
                             <input type="file" id="profileToUpload" name="profileToUpload" accept="image/*" class="small secondary button" />
                             <input type="submit" value="Upload Image" name="submit" class="small button" />

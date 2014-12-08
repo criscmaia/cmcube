@@ -16,11 +16,8 @@ sec_session_start();
 </head>
 <body>
     <?php if (login_check($mysqli) == true) : ?>
+        <p><a href="includes/logout.php">[ log out</a> | <a href="index.php">home page ]</a></p>        
         <p>Welcome <b><?php echo htmlentities($_SESSION['username']); ?>!</b></p>
-        <p>You are logged in so you have permission to upload an image. This image will only be avaiable to you, unless you give permission to another to access it.</p>
-        <p>Return to <a href="login.php">login page</a></p>
-        <p>Return to the <a href="index.php">home page</a>.</p>
-        <hr />
         <?php include "./upload_front.php"; ?>
         <hr />
         <h4>Your images:</h4>
