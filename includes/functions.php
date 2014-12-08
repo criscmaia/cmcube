@@ -155,20 +155,19 @@ function list_images($mysqli) {
     
     if ($stmt = $mysqli->prepare("SELECT filename FROM image_access WHERE username = ? ")) {     // Search for all the images from this user
         $stmt->bind_param('i', $username);
-        $stmt->execute();                                                                               // Execute the prepared query.
+        $stmt->execute();                                                                        // Execute the prepared query.
         $stmt->store_result();
         
-        //if ($stmt->num_rows == 1) {
-        if ($stmt->num_rows > 0) {
-            //while($stmt = $stmt->fetch_assoc()){ 
-                $stmt->bind_result($filename);
-                $stmt->fetch();
-                echo '<img src="./uploadedPictures/' . $filename . '" /><br />';                  // Send the image name back
-                echo 'Number of rows: ' . $stmt->num_rows;
-            //}
+        if ($stmt->num_rows > 0) {                                                               // If the user has any access to any image
+            $stmt->bind_result($filename);
+            while($stmt->fetch()){ 
+                echo '<img src="./uploadedPictures/' . $filename . '" /><br />';                 // Send the image name back
+            }
         } else {
-            echo '<img src="./uploadedPictures/none/no_image.jpg" />';                                 // Prints the 'no image' image
+            echo '<img src="./uploadedPictures/none/no_image.jpg" />';                           // Prints the 'no image' image
         }
+        $stmt->free_result();
+        $stmt->close();
     }
 
 }
