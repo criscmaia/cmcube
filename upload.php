@@ -60,10 +60,9 @@ try {
         $insert_stmt->bind_param('ss', $username, $filename);
         $insert_stmt->execute;
         if (! $insert_stmt->execute()) {
-            //header('location: ../error.php?err=registration failure: insert');
+            // success
         }
     }
-    //header('Location: ./register_success.php');  
     
     
     
@@ -79,13 +78,9 @@ try {
         throw new RuntimeException('Failed to move uploaded file.');
     }
 
-    header ('Location: ../cmcube/protected_page.php?uploadSuccess');
-    //echo 'File is uploaded successfully.';
-    
+    header ('Location: ../cmcube/protected_page.php?uploadSuccess');    
 }
 catch (RuntimeException $e) {
-    
     echo $e->getMessage();
-
 }
 ?>

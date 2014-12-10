@@ -16,18 +16,20 @@ sec_session_start();
 </head>
 <body>
     <?php if (login_check($mysqli) == true) : ?>
-        <p>[ <a href="index.php">home page</a> |
+    <p>
+        [ <a href="index.php">home page</a> |
              <a href="protected_page.php">upload image</a> |
              <a href="visitors_front.php">visitors log</a> |
              <a href="includes/logout.php">log out</a>
-            ]</p>
-        <h4>Welcome <b><?php echo htmlentities($_SESSION['username']); ?>!</b></h4>
-        <?php include "./upload_front.php"; ?>
-        <hr />
-        <h4>Your images:</h4>
-        <?php list_images($mysqli) ?>
+        ]
+    </p>
+    <h4>Welcome <b><?php echo htmlentities($_SESSION['username']); ?>!</b></h4>
+    <?php include "./upload_front.php"; ?>
+    <hr />
+    <h4>Your images:</h4>
+    <?php list_images($mysqli) ?>
     <?php else : ?>
-        <p><span class="error">You are not authorized to access this page.</span> Please <a href="login.php">login</a>.</p>
+    <p><span class="error">You are not authorized to access this page.</span> Please <a href="login.php">login</a>.</p>
     <?php endif; ?>
     <script src="js/vendor/jquery.js"></script>
     <script src="js/foundation.min.js"></script>

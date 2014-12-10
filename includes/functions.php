@@ -2,7 +2,7 @@
 include_once 'psl-config.php';
 
 function sec_session_start() {
-    $session_name = 'sec_session_id';   // Set a custom session name
+    $session_name = 'sec_session_id';                                                   // Set a custom session name
     $secure = SECURE;
     
     $httponly = true;                                                                   // This stops JavaScript being able to access the session id.    
@@ -37,30 +37,25 @@ function login($email, $password, $mysqli) {
             if (checkbrute($user_id, $mysqli) == true) {                                // If the user exists we check if the account is locked from too many login attempts 
                 // Account is locked.  
                 // Email user
+                // Not implemented
                 return false;
-            } else {
-                // Check if the password in the database matches
-                // the password the user submitted.
-                if ($db_password == $password) {
-                    // Password is correct!
+            } else {                                                                    // Check if the password in the database matches the password the user submitted.
+                if ($db_password == $password) {                                        // Password is correct!
                     $user_browser = $_SERVER['HTTP_USER_AGENT'];                        // Get the user-agent string of the user.
                     $user_id = preg_replace("/[^0-9]+/", "", $user_id);                 // XSS protection as we might print this value
                     $_SESSION['user_id'] = $user_id;
                     $username = preg_replace("/[^a-zA-Z0-9_\-]+/",  "",  $username);    // XSS protection as we might print this value
                     $_SESSION['username'] = $username;
                     $_SESSION['login_string'] = hash('sha512',  $password . $user_browser);
-                    // Login successful.
-                    return true;
-                } else {
-                    // Password is not correct
-                    // We record this attempt in the database
-                    $now = time();
+                    return true;                                                        // Login successful.
+                } else {                                                                // Password is not correct
+                    $now = time();                                                      // We record this attempt in the database
                     $mysqli->query("INSERT INTO login_attempts(user_id, time) VALUES ('$user_id', '$now')");
                     return false;
                 }
             }
         } else {
-            return false;       // No user exists.
+            return false;                                                               // No user exists.
         }
     }
 }
@@ -94,8 +89,7 @@ function login_check($mysqli) {
         $user_browser = $_SERVER['HTTP_USER_AGENT'];                                    // Get the user-agent string of the user.
         
         if ($stmt = $mysqli->prepare("SELECT password  FROM members  WHERE id = ? LIMIT 1")) {
-            // Bind "$user_id" to parameter. 
-            $stmt->bind_param('i', $user_id);
+            $stmt->bind_param('i', $user_id);                                           // Bind "$user_id" to parameter. 
             $stmt->execute();                                                           // Execute the prepared query.
             $stmt->store_result();
             
@@ -107,10 +101,10 @@ function login_check($mysqli) {
                 if ($login_check == $login_string) {
                     return true;                                                        // Logged In ! :)
                 } else {
-                    return false;                                                       // Not logged in :(
+                    return false;                                                       // Not logged in
                 }
             } else {
-                return false;                                                           // Not logged in :(
+                return false;                                                           // Not logged in
             }
         } else {
             return false;                                                               // Not logged in 
@@ -121,7 +115,6 @@ function login_check($mysqli) {
 }
 
 function esc_url($url) {
-    
     if ('' == $url) {
         return $url;
     }
@@ -144,7 +137,7 @@ function esc_url($url) {
     $url = str_replace("'", '&#039;', $url);
     
     if ($url[0] !== '/') {
-        return '';                                                                      // We're only interested in relative links from $_SERVER['PHP_SELF']
+        return '';                                                                        // We're only interested in relative links from $_SERVER['PHP_SELF']
     } else {
         return $url;
     }
@@ -163,7 +156,7 @@ function list_images($mysqli) {                                                 
         if ($stmt->num_rows > 0) {                                                               // If the user has any access to any image
             $stmt->bind_result($filename);
             while($stmt->fetch()){ 
-                echo '<img class="uploaded" src="./uploadedPictures/' . $filename . '" />';                 // Send the image name back
+                echo '<img class="uploaded" src="./uploadedPictures/' . $filename . '" />';      // Send the image name back
             }
         } else {
             echo '<img src="./uploadedPictures/none/no_image.jpg" />';                           // Prints the 'no image' image

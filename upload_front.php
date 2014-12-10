@@ -1,8 +1,6 @@
 <?php
 include_once 'includes/db_connect.php';
 include_once 'includes/functions.php';
-
-//sec_session_start();
 ?>
 <!DOCTYPE html>
 <html>
@@ -44,7 +42,7 @@ include_once 'includes/functions.php';
                                         reader.onload = (function (theFile) {               // Closure to capture the file information.
                                             return function (e) {
 
-                                                var span = document.createElement('span');                                      // Render thumbnail.
+                                                var span = document.createElement('span');  // Render thumbnail.
                                                 span.innerHTML = ['<img class="th" src="', e.target.result,
                                                                   '" title="', escape(theFile.name), '"/><br />'].join('');
                                                 document.getElementById('list').insertBefore(span, null);
