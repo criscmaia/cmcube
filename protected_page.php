@@ -8,6 +8,7 @@ sec_session_start();
 <html>
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Upload + Gallery</title>
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/foundation.css" />
